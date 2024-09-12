@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>style</title>
+        <style>
+            h1 {
+                color: black;
+            }
+
+            #foo, #bar {
+                color: blue;
+            }
+
+            .baz {
+                color: brown;
+            }
+        </style>
+<!--
+El orden de asignación es:
+
+Specifity:
+
+1. inline
+2. id
+3. class
+4. type
+
+-->
+
+    </head>
+    <body>
+        <h1 id="foo">Heading 1</h1><!--aqui se aplica el id-->
+        <h1 id="bar">Heading 2</h1><!--aqui se aplica el id-->
+        <h1 class="baz">Heading 3</h1><!--aqui se aplica la clase-->
+        <h1 class="baz">Heading 4</h1><!--aqui se aplica el clase-->
+        <h1>Heading 5</h1>
+    </body>
+</html>
