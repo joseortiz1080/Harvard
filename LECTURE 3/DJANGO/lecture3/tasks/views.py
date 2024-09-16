@@ -1,7 +1,7 @@
 from django import forms
 from django.shortcuts import render
 
-task = ["foo", "bar", "baz"]
+tasks = ["foo", "bar", "baz"]
 
 class NewTasksForm(forms.Form):
     task = forms.CharField(label="New Task")
@@ -9,7 +9,7 @@ class NewTasksForm(forms.Form):
 # Create your views here.
 def index(request):
     return render (request,"tasks/index.html", {
-        "task": task
+        "task": tasks
     })
     
 def add(request):
@@ -17,7 +17,7 @@ def add(request):
         form = NewTasksForm(request.POST)
         if form.is_valid():
             task = form.cleaned_data["task"]
-            task.append(task)
+            tasks.append(task)
         else:
             return render(request,"task/add.html",{
                 "form":form
