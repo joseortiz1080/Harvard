@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+    <div>
+        {{ content|safe }}  <!-- Mostrar el contenido convertido -->
+    </div>
+    
+    <!-- Alinear los botones con flexbox -->
+    <div class="d-flex justify-content-start mt-3">
+        <a href="{% url 'edit_page' title %}" class="btn btn-primary mr-2">Edit Page</a>
+        
+        <!-- Botón para eliminar la página -->
+        <form action="{% url 'delete_page' title %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Page</button>
+        </form>
+    </div>
+{% endblock %}
